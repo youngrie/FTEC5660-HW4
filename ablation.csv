@@ -1,0 +1,10 @@
+config,change,1.1,1.2,2.1,2.2,2.3,3,4,table_cells,docs_pass,non_empty,parse,recall,kept,rejected,accuracy,chunks,seconds,generator_calls,generator_tokens
+B0,"naive RAG (Tutorial 7): get_text + recursive splitter + BM25 top-5 over the whole corpus, no parsing, never returns []",0.0,7.0,5.0,0.0,0.0,0.0,9.6667,0.0,1.0,1.0,0.0,0.3913,1.0,0.0,0.4833,230,7.1,60,122757
+V1,+ table_to_text: tables enter the index with their row labels and column headers instead of a run of loose numbers,8.0,7.0,5.0,0.0,0.0,0.0,9.0,1.0,1.0,1.0,0.0,0.3043,1.0,0.0,0.45,274,7.4,60,130881
+V2,"+ structured chunks: one section per chunk, tables kept whole with the caption and header repeated, a context line on top",8.0,7.0,5.0,0.0,0.0,0.0,11.3333,1.0,1.0,1.0,0.0,0.4565,1.0,0.0,0.5667,627,7.2,60,70206
+V3,"+ tokenizer: lower case, punctuation split, stop words dropped, numbers keep their decimal point",8.0,7.0,5.0,0.0,13.8587,0.0,17.3333,1.0,1.0,1.0,0.0,0.8696,1.0,0.0,0.8667,627,6.8,60,72960
+V4,"+ parse_query: search only the company the question names, and only the document type it asks for (the year must match exactly)",8.0,7.0,5.0,10.0,15.0,0.0,19.6667,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.9833,627,6.8,60,82111
+V5,"+ year window {Y, Y+1} for annual reports and {Y-1, Y} for calls and reports, instead of the exact year",8.0,7.0,5.0,10.0,15.0,0.0,19.3333,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.9667,627,7.9,60,85497
+V6,+ per-company retrieval: a comparison alternates between the companies it names instead of returning five chunks of one,8.0,7.0,5.0,10.0,15.0,0.0,19.3333,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.9667,627,7.2,60,85168
+V7,"+ abstention: [] when the corpus has no such company, no such year, or never mentions the metric",8.0,7.0,5.0,10.0,15.0,10.0,20.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,627,6.2,46,66420
+V8,"+ tie-breakers on top of BM25: the question's year in the text, and how much of the question the chunk covers (= the submitted retrieve)",8.0,7.0,5.0,10.0,15.0,10.0,20.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,627,6.1,46,69015
