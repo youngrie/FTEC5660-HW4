@@ -301,17 +301,5 @@ No embedding model, no vector store, no network access beyond the provided gener
 makes no model calls at all; the 46 calls in `results.csv` are the fixed generator's, one per
 answerable question.
 
----
 
-## Task 6: Reflection
 
-[`reflection.md`](reflection.md) — ~2,400 words, answering the handout's seven questions in order.
-
-It is anchored in what happened here rather than in generalities: the V4 row that scored 100% recall
-while q050 still came back `NOT_FOUND`; the 19.86-point jump that came from nothing but punctuation in
-the tokenizer; V1, where making the text more readable made it *less* findable (recall 39.1% → 30.4%);
-the `(487.8)` sign I knowingly left broken because fixing it would have cost eight points on Task 1.1;
-and the three identical rows in my first ablation table, which were not a finding but a variant that
-switched off query parsing and abstention in one step, orphaning every component downstream of them.
-
-It also commits to one habit, which is why [`unfixed.md`](unfixed.md) exists in this repository.
